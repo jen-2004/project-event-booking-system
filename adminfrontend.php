@@ -82,6 +82,7 @@ unset($_SESSION['message']);
 
         .admin-header h1 {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
@@ -109,6 +110,7 @@ unset($_SESSION['message']);
         .admin-header h1 i {
             font-size: 2rem;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: pulse 2s ease-in-out infinite;
@@ -342,6 +344,7 @@ unset($_SESSION['message']);
 
         .dashboard-card h4 {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
@@ -356,6 +359,7 @@ unset($_SESSION['message']);
         .dashboard-card h4 i {
             font-size: 1.4rem;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -532,6 +536,7 @@ unset($_SESSION['message']);
             margin-bottom: 20px;
             opacity: 0.4;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
