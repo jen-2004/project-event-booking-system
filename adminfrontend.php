@@ -315,7 +315,7 @@ unset($_SESSION['message']);
 
         /* Dashboard Cards */
         .dashboard-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(244, 245, 247, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 35px;
@@ -339,7 +339,7 @@ unset($_SESSION['message']);
 
         .dashboard-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 60px rgba(175, 35, 35, 0.15);
         }
 
         .dashboard-card h4 {
@@ -414,7 +414,7 @@ unset($_SESSION['message']);
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: var(--white);
+            color: var(--black);
             position: relative;
         }
 
@@ -429,7 +429,7 @@ unset($_SESSION['message']);
         }
 
         .table tbody td {
-            padding: 16px;
+            padding: 30px;
             vertical-align: middle;
             color: var(--dark);
             font-size: 0.95rem;
@@ -439,7 +439,7 @@ unset($_SESSION['message']);
 
         .table tbody tr {
             transition: all 0.3s ease;
-            background: var(--white);
+            background: var(--black);
         }
 
         .table tbody tr:hover {
@@ -458,10 +458,10 @@ unset($_SESSION['message']);
 
         /* Action Buttons in Table */
         .table .btn-sm {
-            padding: 8px 16px;
+            padding: 12px 16px;
             font-size: 0.85rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 16px;
             transition: all 0.3s ease;
         }
 
