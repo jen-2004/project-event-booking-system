@@ -1,0 +1,73 @@
+-- Create the database and use it
+CREATE DATABASE IF NOT EXISTS eventbooking CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE eventbooking;
+
+-- -------------------------------------------------------------
+-- 1. Table: users (Handles login, roles, and user information)
+-- -------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    -- Store hashed passwords (255 is safe for modern hashing algorithms like bcrypt)
+    password VARCHAR(255) NOT NULL,
+    -- Role is essential for admin access control
+    role ENUM('user', 'admin') NOT NULL DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- -------------------------------------------------------------
+-- 2. Table: events (Stores details of all events)
+-- -------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS events (
+    event_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    description TEXT NOT NULL,
+    date DATE NOT NULL,
+    location VARCHAR(150) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    total_seats INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- -------------------------------------------------------------
+-- 3. Table: bookings (Links users to events)
+-- -------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS bookings (
+    booking_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    event_id INT NOT NULL,
+    seats INT NOT NULL DEFAULT 1,
+    status ENUM('pending', 'approved', 'cancelled') NOT NULL DEFAULT 'pending',
+    booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (event_id) REFERENCES events(event_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- -------------------------------------------------------------
+-- 4. Initial Data for Testing
+-- -------------------------------------------------------------
+
+-- Insert a default ADMIN user (Password: 'adminpass')
+INSERT INTO users (name, email, password, role) VALUES
+(
+    'Admin User',
+    'admin@example.com',
+    '$2y$10$wN1QYfKqXh8/R2A.yF1k.eM7Rz2P4cQ7XG0nS8xV5gC7fO4bO7b5i', -- Hashed 'adminpass'
+    'admin'
+);
+
+-- Insert a regular USER (Password: 'userpass')
+INSERT INTO users (name, email, password, role) VALUES
+(
+    'Regular User',
+    'user@example.com',
+    '$2y$10$D5QLnYDfGZqxohG5mfoFXe5zVHIpD5c37Y30WCorRg1atsExo5E5q', -- Hashed 'userpass'
+    'user'
+);
+
+-- Insert a sample booking (User 2 booking for Event 1)
+INSERT INTO bookings (user_id, event_id, seats, status) VALUES
+(2, 1, 2, 'approved');
+
+
