@@ -109,22 +109,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
         }
 
         :root {
-            --primary: #6013ad;
-            --primary-dark: #a855f7;
-            --secondary: #e9d5ff;
-            --success: #096e4d;
+            --primary: #667eea;
+            --primary-dark: #5a67d8;
+            --secondary: #764ba2;
+            --success: #10b981;
             --danger: #ef4444;
             --warning: #f59e0b;
-            --info: #c4b5fd;
-            --dark: #2e1065;
-            --light: #faf5ff;
-            --gray: #9333ea;
+            --info: #3b82f6;
+            --dark: #1a202c;
+            --light: #f7fafc;
+            --gray: #64748b;
             --white: #ffffff;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -138,8 +138,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(192, 132, 252, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(233, 213, 255, 0.2) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.3) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -151,15 +151,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         /* Navbar */
         .navbar {
-            background: rgba(75, 9, 141, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(192, 132, 252, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             padding: 1rem 0;
-            border-bottom: 2px solid rgba(192, 132, 252, 0.2);
+            border-bottom: 2px solid rgba(102, 126, 234, 0.2);
         }
 
         .navbar-brand {
-            color: var(--primary-dark) !important;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: 800;
             font-size: 1.5rem;
             letter-spacing: -0.5px;
@@ -171,9 +174,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         .navbar-brand i {
             font-size: 1.8rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .navbar-brand:hover {
@@ -181,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
         }
 
         .nav-link {
-            color: var(--primary-dark) !important;
+            color: var(--dark) !important;
             font-weight: 600;
             padding: 0.6rem 1.2rem !important;
             border-radius: 10px;
@@ -192,7 +192,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
         }
 
         .nav-link:hover {
-            background: rgba(192, 132, 252, 0.15);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
             color: var(--primary) !important;
             transform: translateY(-2px);
         }
@@ -208,29 +208,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(241, 110, 235, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            color: var(--primary-dark);
+            color: var(--dark);
             padding: 12px 24px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(192, 132, 252, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            border: 2px solid rgba(192, 132, 252, 0.2);
+            border: 2px solid rgba(102, 126, 234, 0.2);
         }
 
         .btn-back:hover {
             background: var(--white);
             color: var(--primary);
             transform: translateX(-5px);
-            box-shadow: 0 6px 20px rgba(192, 132, 252, 0.3);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
             border-color: var(--primary);
         }
 
         /* Page Header */
         .page-header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             padding: 35px;
             border-radius: 20px;
@@ -266,6 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         .page-header h2 {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
@@ -282,7 +283,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
         }
 
         .page-header p {
-            color: #7c3aed;
+            color: var(--gray);
             margin: 10px 0 0 0;
             font-size: 1rem;
             font-weight: 500;
@@ -315,20 +316,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
         }
 
         .alert-success {
-            color: #065f46;
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.15) 100%);
+            color: var(--success);
             border-left: 4px solid var(--success);
         }
 
         .alert-danger {
-            color: #7f1d1d;
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.15) 100%);
+            color: var(--danger);
             border-left: 4px solid var(--danger);
         }
 
         .alert-warning {
-            color: #78350f;
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(234, 88, 12, 0.15) 100%);
+            color: var(--warning);
             border-left: 4px solid var(--warning);
         }
 
@@ -338,7 +339,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         /* Form Card */
         .form-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 40px;
@@ -362,7 +363,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
         .form-section {
             margin-bottom: 35px;
             padding-bottom: 35px;
-            border-bottom: 2px solid rgba(192, 132, 252, 0.15);
+            border-bottom: 2px solid rgba(102, 126, 234, 0.15);
         }
 
         .form-section:last-of-type {
@@ -412,7 +413,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         /* Form Controls */
         .form-control {
-            border: 2px solid #5104a3;
+            border: 2px solid rgba(102, 126, 234, 0.3);
             border-radius: 12px;
             padding: 12px 16px;
             font-size: 0.95rem;
@@ -423,7 +424,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         .form-control:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(83, 27, 139, 0.15);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
             background: var(--white);
         }
 
@@ -433,7 +434,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
         }
 
         .form-text {
-            color: #7c3aed;
+            color: var(--gray);
             font-size: 0.85rem;
             margin-top: 6px;
             font-weight: 500;
@@ -441,25 +442,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         /* Image Upload Area */
         .image-upload-area {
-            border: 3px dashed #641fad;
+            border: 3px dashed rgba(102, 126, 234, 0.4);
             border-radius: 16px;
             padding: 50px 30px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
             position: relative;
         }
 
         .image-upload-area:hover {
             border-color: var(--primary);
-            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
             transform: translateY(-3px);
         }
 
         .image-upload-area.dragover {
             border-color: var(--success);
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
             transform: scale(1.02);
         }
 
@@ -480,7 +481,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         .upload-hint {
             font-size: 0.9rem;
-            color: #7c3aed;
+            color: var(--gray);
             font-weight: 500;
         }
 
@@ -542,7 +543,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
         /* Submit Button */
         .btn-submit {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: var(--white);
             border: none;
             padding: 16px 32px;
@@ -556,7 +557,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
             justify-content: center;
             gap: 10px;
             margin-top: 30px;
-            box-shadow: 0 8px 25px rgba(84, 36, 133, 0.4);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -587,7 +588,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_event'])) {
 
         .btn-submit:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(192, 132, 252, 0.5);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
         }
 
         .btn-submit:active {
